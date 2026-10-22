@@ -18,8 +18,8 @@ Membantu mahasiswa mengontrol pengeluaran harian dan bulanan.
 Membuat pencatatan keuangan cukup sederhana untuk dilakukan dalam beberapa detik.
 Memberi gambaran keuangan lewat grafik dan wawasan otomatis.
 Memberi peringatan dini agar anggaran tidak jebol.
-4. Fitur utama
 
+4. Fitur utama
 Ringkasan (dashboard). Menampilkan total saldo, pemasukan bulan ini, pengeluaran bulan ini, dan lima transaksi terbaru. Banner peringatan muncul di sini bila anggaran hampir habis.
 
 Pencatatan transaksi. Pengguna memilih jenis (pemasukan atau pengeluaran), kategori, jumlah, tanggal, dan catatan opsional. Halaman Transaksi memiliki pencarian dan filter berdasarkan jenis serta kategori, juga tombol hapus per transaksi.
@@ -50,15 +50,14 @@ SVG yang dibuat lewat JavaScript untuk grafik garis dan diagram donat, tanpa lib
 Elemen <dialog> untuk jendela tambah transaksi dan kategori.
 Single-page navigation dengan hash (#analytics, #categories), sehingga tombol Back browser tetap berfungsi.
 Media query agar menu pindah ke bar bawah di layar HP.
-6. Cara kerja singkat
 
+6. Cara kerja singkat
 Pengguna menambah transaksi lewat formulir, lalu JavaScript menyimpannya ke localStorage. Setelah itu seluruh tampilan dihitung ulang: saldo, bar anggaran, grafik, dan daftar transaksi. Aplikasi lalu memeriksa apakah ada kategori yang pemakaiannya sudah mencapai 80% atau 100% dari batas, dan menampilkan peringatan bila ada.
 
 7. Potensi penghasilan
 Paket Premium dengan fitur tambahan: ekspor laporan PDF dan Excel, target tabungan, pengingat tagihan, dan sinkronisasi antar perangkat.
 Kerja sama dengan layanan keuangan: rekomendasi tabungan pelajar, dompet digital, atau asuransi yang relevan bagi mahasiswa, yang ditampilkan secara opsional.
+
 8. Kelebihan dan keterbatasan
-
 Kelebihan: ringan, gratis, tidak perlu daftar, bisa dipakai tanpa internet setelah dimuat, dan tampilannya nyaman di HP maupun komputer.
-
 Keterbatasan: data tersimpan hanya di satu browser, jadi tidak otomatis muncul di perangkat lain dan akan hilang bila data browser dihapus. Fitur sinkronisasi antar perangkat membutuhkan server atau database, dan itu menjadi rencana pengembangan berikutnya.
