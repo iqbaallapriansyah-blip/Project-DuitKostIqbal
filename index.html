@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DuitKostIqbal – Pencatat Keuangan Mahasiswa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<!-- APLIKASI -->
+<div id="app" class="app">
+  <header class="mtop">
+    <span class="brand"><span class="logo-sq sm"><i data-ic="chart"></i></span>DuitKostIqbal</span>
+    <button class="icon-btn" data-act="reset" aria-label="Hapus semua data"><i data-ic="trash"></i></button>
+  </header>
+
+  <aside class="side">
+    <div class="brand"><span class="logo-sq sm"><i data-ic="chart"></i></span>DuitKostIqbal</div>
+    <div class="user"><span class="avatar">D</span><div><b>Mohammad Iqbal Apriansyah</b><small>Pencatat keuangan</small></div></div>
+    <p class="menu-t">MENU</p>
+    <nav id="nav" class="nav" aria-label="Menu utama"></nav>
+    <button class="logout" data-act="reset"><i data-ic="trash"></i>Hapus semua data</button>
+  </aside>
+
+  <main class="main">
+    <div id="view"></div>
+    <footer class="credit">Mohammad Iqbal Apriansyah · Tugas Pemrograman WEB</footer>
+  </main>
+</div>
+
+<!-- Modal transaksi -->
+<dialog id="txDlg">
+  <form id="txForm" method="dialog" autocomplete="off">
+    <div class="dh"><h2>Tambah Transaksi</h2><button type="button" class="icon-btn" data-close aria-label="Tutup"><i data-ic="x"></i></button></div>
+    <p class="lbl">JENIS</p>
+    <div class="seg">
+      <button type="button" class="on out" data-type="out"><i data-ic="up"></i>Pengeluaran</button>
+      <button type="button" data-type="in"><i data-ic="down"></i>Pemasukan</button>
+    </div>
+    <label class="lbl">JUMLAH<div class="inp"><em>Rp</em><input id="txAmount" inputmode="numeric" placeholder="0"></div></label>
+    <label class="lbl">KATEGORI<select id="txCat"></select></label>
+    <label class="lbl">TANGGAL<input type="date" id="txDate" class="inp2"></label>
+    <label class="lbl">CATATAN <span class="opt">(opsional)</span><textarea id="txNote" rows="2" maxlength="60" placeholder="Tambahkan catatan..."></textarea></label>
+    <p id="txErr" class="err" hidden></p>
+    <div class="dbtn"><button type="button" class="btn dark" data-close>Batal</button><button type="submit" class="btn green">Tambah</button></div>
+  </form>
+</dialog>
+
+<!-- Modal kategori -->
+<dialog id="catDlg">
+  <form id="catForm" method="dialog" autocomplete="off">
+    <div class="dh"><h2 id="catTitle">Tambah Kategori</h2><button type="button" class="icon-btn" data-close aria-label="Tutup"><i data-ic="x"></i></button></div>
+    <label class="lbl">JENIS<select id="catType"><option value="out">Pengeluaran</option><option value="in">Pemasukan</option></select></label>
+    <label class="lbl">NAMA<input id="catName" class="inp2" maxlength="20" placeholder="contoh: Kos"></label>
+    <label class="lbl">IKON<select id="catIcon"></select></label>
+    <label class="lbl" id="limitRow">BATAS ANGGARAN BULANAN <span class="opt">(opsional)</span><div class="inp"><em>Rp</em><input id="catLimit" inputmode="numeric" placeholder="0"></div></label>
+    <p id="catErr" class="err" hidden></p>
+    <div class="dbtn"><button type="button" class="btn dark" data-close>Batal</button><button type="submit" class="btn green">Simpan</button></div>
+  </form>
+</dialog>
+
+<!-- Asisten -->
+<button id="botBtn" class="fab" aria-label="Buka asisten"><i data-ic="bot"></i></button>
+<section id="bot" class="bot" hidden aria-label="Asisten keuangan">
+  <div class="bot-h"><b>Asisten Duit</b><button class="icon-btn" id="botClose" aria-label="Tutup"><i data-ic="x"></i></button></div>
+  <div id="botLog" class="bot-log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form id="botForm" class="bot-f"><input id="botIn" placeholder="Tanya soal keuanganmu..." autocomplete="off"><button class="btn green" aria-label="Kirim"><i data-ic="send"></i></button></form>
+</section>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="script.js?v=3"></script>
+</body>
+</html>
